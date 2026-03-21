@@ -3,7 +3,7 @@ tests/test_bayesian_model.py
 
 Tests for the Bayesian inference core.
 
-We test behavior, not implementation — meaning we check that outputs
+We test behavior, not implementation - meaning we check that outputs
 satisfy statistical properties, not that specific intermediate values
 match. This makes tests robust to refactoring.
 """
@@ -23,7 +23,7 @@ class TestSingleObservation:
         assert result.variance > 0
 
     def test_interval_is_wide(self):
-        # With n=1 we have almost no information — interval should be wide.
+        # With n=1 we have almost no information - interval should be wide.
         # "Wide" here means > 1.0 total width, which is half the domain.
         result = estimate_market([0.5])
         width = result.upper_bound - result.lower_bound
@@ -31,7 +31,7 @@ class TestSingleObservation:
 
     def test_prior_pull(self):
         # With one extreme observation, prior (mean=0) should pull the
-        # posterior mean back toward zero — not sit at the raw score.
+        # posterior mean back toward zero - not sit at the raw score.
         result = estimate_market([1.0])
         assert result.mean < 1.0, "Posterior should be pulled toward prior"
         assert result.mean > 0.0, "Posterior should still reflect the positive signal"

@@ -10,7 +10,7 @@ from api.routes import router
 
 app = FastAPI(
     title="KiwiPulse",
-    description="Probabilistic Market Intelligence Engine — "
+    description="Probabilistic Market Intelligence Engine - "
                 "Bayesian inference over noisy sentiment signals.",
     version="0.1.0",
 )
